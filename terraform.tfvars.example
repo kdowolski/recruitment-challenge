@@ -1,0 +1,2 @@
+candidate_password = "changeme123"
+# allowed_ssh_cidr = "203.0.113.50/32"  # restrict to candidate's IP
