@@ -24,10 +24,6 @@ variable "allowed_ssh_cidr" {
   default     = "0.0.0.0/0"
 }
 
-variable "admin_public_key_path" {
-  description = "Path to admin SSH public key for ubuntu user access"
-  default     = "~/.ssh/id_ed25519.pub"
-}
 
 variable "auto_shutdown_minutes" {
   description = "Auto-terminate instance after this many minutes (0 to disable)"

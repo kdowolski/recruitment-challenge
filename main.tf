@@ -58,25 +58,10 @@ resource "aws_security_group" "challenge" {
   }
 }
 
-resource "aws_key_pair" "admin" {
-  key_name_prefix = "recruitment-admin-"
-  public_key      = file(var.admin_public_key_path)
-
-  tags = {
-    StarfishRecruitmentChallenge = "True"
-    CreationTime                 = timestamp()
-  }
-
-  lifecycle {
-    ignore_changes = [tags["CreationTime"]]
-  }
-}
-
 resource "aws_instance" "challenge" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.challenge.id]
-  key_name               = aws_key_pair.admin.key_name
 
   instance_initiated_shutdown_behavior = "terminate"
 
