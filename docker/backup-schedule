@@ -1,1 +1,0 @@
-* * * * * /usr/local/bin/backup-agent >> /var/log/backup-agent.log 2>&1
