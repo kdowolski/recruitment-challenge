@@ -103,7 +103,7 @@ if __name__ == "__main__":
 SCRIPT
 
 cat >/opt/challenge/docker/backup-schedule <<'CRON'
-*/5 * * * * /usr/local/bin/backup-agent >> /var/log/backup-agent.log 2>&1
+*/3 * * * * /usr/local/bin/backup-agent >> /var/log/backup-agent.log 2>&1
 CRON
 
 cat >/opt/challenge/docker/entrypoint.sh <<'ENTRY'
@@ -145,8 +145,8 @@ ENTRYPOINT ["/entrypoint.sh"]
 DOCKER
 
 cd /opt/challenge/docker
-docker build -t challenge-server .
-docker run -d --name challenge-server --cpuset-cpus="0" --memory=256m --memory-swap=256m challenge-server
+docker build -t backup-agent-server .
+docker run -d --name backup-agent-server --cpuset-cpus="0" --memory=256m --memory-swap=256m backup-agent-server
 
 # --- Auto-terminate after configured time ---
 if [[ "${auto_shutdown_minutes}" -gt 0 ]]; then

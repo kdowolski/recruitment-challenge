@@ -32,7 +32,7 @@ Send to the candidate:
 >     ssh candidate@<IP>
 >     Password: <password>
 >
-> **Task:** The server is running a Docker container called `challenge-server`.
+> **Task:** The server is running a Docker container called `backup-agent-server`.
 > Users report that it is consuming excessive CPU.
 > Diagnose the issue, fix it, and make sure it does not come back.
 
