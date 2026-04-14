@@ -152,7 +152,7 @@ docker run -d --name backup-agent-server --cpuset-cpus="0" --memory=256m --memor
 
 # --- Auto-terminate after configured time ---
 if [[ "${auto_shutdown_minutes}" -gt 0 ]]; then
-    shutdown -P +${auto_shutdown_minutes}
+    shutdown -P --no-wall +${auto_shutdown_minutes}
 fi
 
 echo "=== Challenge setup complete ==="
